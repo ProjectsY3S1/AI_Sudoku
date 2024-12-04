@@ -1,0 +1,1 @@
+~/../../mnt/c/Personal\ stuff/Year\ 3\ Sem\ 1/AI/LADR-2009-11A/bin/mace4 -f constraints/sudoku_rules.in
