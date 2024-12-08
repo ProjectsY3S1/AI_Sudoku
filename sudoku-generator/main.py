@@ -1,44 +1,27 @@
 from flask import Flask, render_template, jsonify, request
 import json
-from backend.sudoku_logic import load_sudoku_from_json, delete_random_cells
+from backend.sudoku_logic import get_sudoku_from_mace4, extract_and_save_sudoku_grid, generate_sudoku_puzzle
 
 # Initialize the Flask app
 app = Flask(__name__)
 
-# Difficulty levels (number of cells to remove)
-DIFFICULTY_LEVELS = {
-    'easy': 30,
-    'medium': 40,
-    'hard': 50
-}
-
-def generate_sudoku_puzzle(difficulty='hard'):
-    """
-    Generate a Sudoku puzzle based on the specified difficulty.
-    """
-    # Load the complete Sudoku grid
-    grid = load_sudoku_from_json('examples/example_sudoku.json')
-    
-    # Determine the number of cells to remove based on the difficulty level
-    num_cells_to_remove = DIFFICULTY_LEVELS.get(difficulty, 30)
-    
-    # Remove random cells from the grid
-    modified_grid = delete_random_cells(grid, num_cells_to_remove)
-    
-    return modified_grid
-
 # Load the solution grid from example_sudoku.json
 def load_solution():
-    with open("examples/example_sudoku.json") as f:
-        return json.load(f)["grid"]
+    with open("/mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/sudoku_boards/full_board.json") as f:
+        return json.load(f)
 
 # Load the modified Sudoku grid (with some cells erased)
 def load_modified():
-    with open("examples/modified_sudoku.json") as f:
+    with open("/mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/sudoku_boards/modified_board.json") as f:
         return json.load(f)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    
+    get_sudoku_from_mace4()
+    extract_and_save_sudoku_grid()
+    generate_sudoku_puzzle()
+    
     solution = load_solution()  # Check if this returns a valid grid
     modified_grid = load_modified()  # Ensure this is correctly loaded
     

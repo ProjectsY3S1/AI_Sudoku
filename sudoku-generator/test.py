@@ -1,9 +1,8 @@
 from generator.mace4_interface import run_mace4
-
+from backend.sudoku_logic import get_sudoku_from_mace4, extract_and_save_sudoku_grid
 def main():
-    output = run_mace4("/mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/constraints/sudoku_rules_small.in")
-    print("Generated Sudoku Puzzle:")
-    print(output)
+    get_sudoku_from_mace4()
+    extract_and_save_sudoku_grid()
 
 if __name__ == "__main__":
     main()
