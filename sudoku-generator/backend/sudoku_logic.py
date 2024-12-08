@@ -2,7 +2,7 @@ import random
 import json
 from generator.mace4_interface import run_mace4
 import re
-
+import random
 
 # Difficulty levels (number of cells to remove)
 DIFFICULTY_LEVELS = {
@@ -11,10 +11,11 @@ DIFFICULTY_LEVELS = {
     'hard': 50
 }
 def get_sudoku_from_mace4():
-    input_file = "/mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/constraints/sudoku_rules_small.in"
+    input_file = "/mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/constraints/sudoku_rules.in"
     output_file = "/mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/mace4-results/result.txt"
 
     # Call the previously defined run_mace4 function
+    edit_constraint_file(input_file)
     return_code = run_mace4(input_file, output_file)
     
     if return_code == 0:
@@ -22,6 +23,31 @@ def get_sudoku_from_mace4():
     else:
         print("mace4 encountered an error.")
 
+def edit_constraint_file(file_path):
+    """
+    Edits row 48 of the given constraint file, replacing every number with a random number between 0 and 8.
+    
+    Args:
+        file_path (str): The path to the constraint file.
+    """
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+
+    # Generate a new random line
+    random_numbers = [random.randint(0, 8) for _ in range(2)]
+    new_line = f"   f({random_numbers[0]},{random_numbers[1]}) = {random.randint(0, 8)}.\n"
+
+    # Replace row 48 with the new random line
+    if len(lines) >= 48:  # Ensure there are at least 48 lines
+        lines[47] = new_line  # Row 48 corresponds to index 47
+    else:
+        raise IndexError("The file does not have enough lines to edit row 48.")
+
+    # Write the updated content back to the file
+    with open(file_path, 'w') as file:
+        file.writelines(lines)
+
+    print(f"Successfully updated row 48 with: {new_line.strip()}")
 
 def extract_and_save_sudoku_grid():
     """

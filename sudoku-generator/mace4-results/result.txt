@@ -1,13 +1,13 @@
 ============================== Mace4 =================================
 Mace4 (64) version 2009-11A, November 2009.
-Process 2694 was started by akos on AkosLaptop,
-Sat Dec  7 18:33:05 2024
-The command was "/mnt/c/Personal stuff/Year 3 Sem 1/AI/LADR-2009-11A/bin/mace4 -f /mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/constraints/sudoku_rules_small.in".
+Process 5456 was started by akos on AkosLaptop,
+Sun Dec  8 16:41:33 2024
+The command was "/mnt/c/Personal stuff/Year 3 Sem 1/AI/LADR-2009-11A/bin/mace4 -f /mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/constraints/sudoku_rules.in".
 ============================== end of head ===========================
 
 ============================== INPUT =================================
 
-% Reading from file /mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/constraints/sudoku_rules_small.in
+% Reading from file /mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/constraints/sudoku_rules.in
 
 assign(domain_size,9).
     % assign(domain_size, 9) -> assign(start_size, 9).
@@ -32,7 +32,7 @@ one_subgrid(7,8).
 end_of_list.
 
 formulas(sample_puzzle).
-f(0,0) = 1.
+f(4,8) = 7.
 end_of_list.
 
 ============================== end of input ==========================
@@ -68,7 +68,7 @@ one_subgrid(7,8).
 -one_subgrid(0,6).
 -one_subgrid(x,y) | -one_subgrid(z,u) | f(y,u) != f(x,z) | y = x.
 -one_subgrid(x,y) | -one_subgrid(z,u) | f(y,u) != f(x,z) | u = z.
-f(0,0) = 1.
+f(4,8) = 7.
 end_of_list.
 
 ============================== end of clauses for search =============
@@ -82,15 +82,15 @@ end_of_list.
 interpretation( 9, [number=1, seconds=0], [
 
         function(f(_,_), [
-			   1, 0, 4, 2, 6, 8, 3, 5, 7,
-			   2, 3, 6, 4, 5, 7, 0, 1, 8,
-			   5, 7, 8, 0, 1, 3, 2, 4, 6,
-			   0, 4, 1, 6, 7, 2, 5, 8, 3,
-			   6, 5, 2, 8, 3, 1, 4, 7, 0,
-			   7, 8, 3, 5, 0, 4, 1, 6, 2,
-			   8, 2, 0, 7, 4, 5, 6, 3, 1,
-			   3, 6, 5, 1, 8, 0, 7, 2, 4,
-			   4, 1, 7, 3, 2, 6, 8, 0, 5 ]),
+			   1, 5, 0, 2, 8, 6, 4, 7, 3,
+			   2, 6, 3, 7, 0, 4, 1, 5, 8,
+			   4, 8, 7, 1, 5, 3, 2, 0, 6,
+			   3, 4, 5, 6, 7, 8, 0, 1, 2,
+			   0, 1, 2, 3, 4, 5, 6, 8, 7,
+			   6, 7, 8, 0, 1, 2, 3, 4, 5,
+			   5, 2, 1, 4, 3, 7, 8, 6, 0,
+			   7, 0, 6, 8, 2, 1, 5, 3, 4,
+			   8, 3, 4, 5, 6, 0, 7, 2, 1 ]),
 
         relation(one_subgrid(_,_), [
 			   1, 1, 1, 0, 0, 0, 0, 0, 0,
@@ -110,17 +110,17 @@ interpretation( 9, [number=1, seconds=0], [
 
 For domain size 9.
 
-Current CPU time: 0.00 seconds (total CPU time: 0.02 seconds).
+Current CPU time: 0.00 seconds (total CPU time: 0.01 seconds).
 Ground clauses: seen=15409, kept=3007.
-Selections=44, assignments=186, propagations=142, current_models=1.
-Rewrite_terms=7417, rewrite_bools=4781, indexes=0.
-Rules_from_neg_clauses=60, cross_offs=780.
+Selections=48, assignments=210, propagations=142, current_models=1.
+Rewrite_terms=7985, rewrite_bools=4900, indexes=0.
+Rules_from_neg_clauses=60, cross_offs=915.
 
 ============================== end of statistics =====================
 
-User_CPU=0.02, System_CPU=0.00, Wall_clock=0.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
 
 Exiting with 1 model.
 
-Process 2694 exit (max_models) Sat Dec  7 18:33:05 2024
-The process finished Sat Dec  7 18:33:05 2024
+Process 5456 exit (max_models) Sun Dec  8 16:41:33 2024
+The process finished Sun Dec  8 16:41:33 2024
