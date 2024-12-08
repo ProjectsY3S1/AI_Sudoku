@@ -1,7 +1,7 @@
 ============================== Mace4 =================================
 Mace4 (64) version 2009-11A, November 2009.
-Process 5456 was started by akos on AkosLaptop,
-Sun Dec  8 16:41:33 2024
+Process 5951 was started by akos on AkosLaptop,
+Sun Dec  8 18:04:49 2024
 The command was "/mnt/c/Personal stuff/Year 3 Sem 1/AI/LADR-2009-11A/bin/mace4 -f /mnt/c/Personal stuff/Year 3 Sem 1/AI/proj2_sudoku/sudoku-generator/constraints/sudoku_rules.in".
 ============================== end of head ===========================
 
@@ -32,7 +32,7 @@ one_subgrid(7,8).
 end_of_list.
 
 formulas(sample_puzzle).
-f(4,8) = 7.
+f(1,6) = 4.
 end_of_list.
 
 ============================== end of input ==========================
@@ -68,7 +68,7 @@ one_subgrid(7,8).
 -one_subgrid(0,6).
 -one_subgrid(x,y) | -one_subgrid(z,u) | f(y,u) != f(x,z) | y = x.
 -one_subgrid(x,y) | -one_subgrid(z,u) | f(y,u) != f(x,z) | u = z.
-f(4,8) = 7.
+f(1,6) = 4.
 end_of_list.
 
 ============================== end of clauses for search =============
@@ -82,15 +82,15 @@ end_of_list.
 interpretation( 9, [number=1, seconds=0], [
 
         function(f(_,_), [
-			   1, 5, 0, 2, 8, 6, 4, 7, 3,
-			   2, 6, 3, 7, 0, 4, 1, 5, 8,
-			   4, 8, 7, 1, 5, 3, 2, 0, 6,
-			   3, 4, 5, 6, 7, 8, 0, 1, 2,
-			   0, 1, 2, 3, 4, 5, 6, 8, 7,
-			   6, 7, 8, 0, 1, 2, 3, 4, 5,
-			   5, 2, 1, 4, 3, 7, 8, 6, 0,
-			   7, 0, 6, 8, 2, 1, 5, 3, 4,
-			   8, 3, 4, 5, 6, 0, 7, 2, 1 ]),
+			   3, 4, 5, 2, 7, 8, 0, 1, 6,
+			   0, 1, 2, 3, 5, 6, 4, 7, 8,
+			   6, 7, 8, 0, 1, 4, 2, 3, 5,
+			   1, 2, 0, 7, 6, 3, 5, 8, 4,
+			   5, 6, 3, 4, 8, 2, 1, 0, 7,
+			   7, 8, 4, 1, 0, 5, 3, 6, 2,
+			   8, 5, 1, 6, 2, 0, 7, 4, 3,
+			   4, 0, 6, 5, 3, 7, 8, 2, 1,
+			   2, 3, 7, 8, 4, 1, 6, 5, 0 ]),
 
         relation(one_subgrid(_,_), [
 			   1, 1, 1, 0, 0, 0, 0, 0, 0,
@@ -110,17 +110,17 @@ interpretation( 9, [number=1, seconds=0], [
 
 For domain size 9.
 
-Current CPU time: 0.00 seconds (total CPU time: 0.01 seconds).
+Current CPU time: 0.00 seconds (total CPU time: 0.03 seconds).
 Ground clauses: seen=15409, kept=3007.
-Selections=48, assignments=210, propagations=142, current_models=1.
-Rewrite_terms=7985, rewrite_bools=4900, indexes=0.
-Rules_from_neg_clauses=60, cross_offs=915.
+Selections=44, assignments=187, propagations=133, current_models=1.
+Rewrite_terms=7460, rewrite_bools=4517, indexes=0.
+Rules_from_neg_clauses=51, cross_offs=916.
 
 ============================== end of statistics =====================
 
-User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+User_CPU=0.03, System_CPU=0.00, Wall_clock=0.
 
 Exiting with 1 model.
 
-Process 5456 exit (max_models) Sun Dec  8 16:41:33 2024
-The process finished Sun Dec  8 16:41:33 2024
+Process 5951 exit (max_models) Sun Dec  8 18:04:49 2024
+The process finished Sun Dec  8 18:04:49 2024
